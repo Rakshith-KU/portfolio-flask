@@ -42,16 +42,7 @@ portfolio_data = {
         "description": "Interactive game using JavaScript with DOM manipulation and basic logic.",
         "link": "https://github.com/Rakshith-KU/rock-paper-scissors-js"
     },
-    {
-        "title": "Blog Application (Django)",
-        "description": "Basic blog app using Django with CRUD operations (Function-Based Views).",
-        "link": "https://github.com/Rakshith-KU/django-blog-app"
-    },
-    {
-        "title": "Polls Application (Django)",
-        "description": "Simple polling system with voting functionality built using Django.",
-        "link": "https://github.com/Rakshith-KU/django-polls-app"
-    },
+    
     {
         "title": "Netflix Data Analysis",
         "description": "Analyzed Netflix dataset using Python, Pandas, and Matplotlib. Handled missing data and visualized trends.",
