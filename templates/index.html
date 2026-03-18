@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{ data.name }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>{{ data.name }}</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>{{ data.name }}</h1>
+    <h3>{{ data.title }}</h3>
+    <p>{{ data.tagline }}</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p>{{ data.about }}</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="chips">
+        {% for skill in data.skills %}
+            <span>{{ skill }}</span>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+    <h2>Education</h2>
+    {% for edu in data.education %}
+        <div class="card">
+            <h3>{{ edu.degree }}</h3>
+            <p>{{ edu.institution }}</p>
+            <p>{{ edu.year }}</p>
+        </div>
+    {% endfor %}
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+    <h2>Experience</h2>
+    {% for exp in data.experience %}
+        <div class="card">
+            <h3>{{ exp.role }}</h3>
+            <p>{{ exp.company }}</p>
+            <p>{{ exp.duration }}</p>
+            <p>{{ exp.details }}</p>
+        </div>
+    {% endfor %}
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="project-container">
+        {% for project in data.projects %}
+        <div class="card">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <a href="{{ project.link }}">View</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume" class="section">
+    <h2>Resume</h2>
+    <a class="btn" href="{{ url_for('static', filename='resume.pdf') }}" download>Download Resume</a>
+    <iframe src="{{ url_for('static', filename='resume.pdf') }}"></iframe>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: {{ data.contact.email }}</p>
+    
+    <p><a href="{{ data.contact.github }}">GitHub</a></p>
+</section>
+
+</body>
+</html>
